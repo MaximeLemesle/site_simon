@@ -1,0 +1,37 @@
+{
+  "programs": [
+    {
+      "name": "NOM DU PROGRAMME NUMÉRO 1",
+      "price": 50,
+      "features": [
+        { "name": "Programme personnalisé", "available": true },
+        { "name": "Diète adaptée", "available": true },
+        { "name": "Suivi sur 3 semaines", "available": false },
+        { "name": "Coaching vidéo", "available": false },
+        { "name": "Conseil 24/24", "available": false }
+      ]
+    },
+    {
+      "name": "NOM DU PROGRAMME NUMÉRO 2",
+      "price": 75,
+      "features": [
+        { "name": "Programme personnalisé", "available": true },
+        { "name": "Diète adaptée", "available": true },
+        { "name": "Suivi sur 3 semaines", "available": true },
+        { "name": "Coaching vidéo", "available": false },
+        { "name": "Conseil 24/24", "available": false }
+      ]
+    },
+    {
+      "name": "NOM DU PROGRAMME NUMÉRO 3",
+      "price": 150,
+      "features": [
+        { "name": "Programme personnalisé", "available": true },
+        { "name": "Diète adaptée", "available": true },
+        { "name": "Suivi sur 3 semaines", "available": true },
+        { "name": "Coaching vidéo", "available": true },
+        { "name": "Conseil 24/24", "available": true }
+      ]
+    }
+  ]
+}
