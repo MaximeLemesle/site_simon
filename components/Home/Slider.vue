@@ -1,76 +1,117 @@
 <template>
-  <!-- <div class="slider-container">
-    <swiper :slides-per-view="3" :space-between="30" class="mySwiper">
-      <swiper-slide v-for="(program, index) in programs" :key="index">
-        <div class="card">
-          <div class="image-placeholder">IMAGE</div>
-          <div class="price">{{ program.price }} €</div>
-          <div class="program-name">{{ program.name }}</div>
-          <ul class="features">
-            <li v-for="(feature, index) in program.features" :key="index">
-              <span :class="feature.available ? 'available' : 'not-available'">
-                {{ feature.available ? "✔️" : "❌" }}
-              </span>
-              {{ feature.name }}
-            </li>
-          </ul>
-          <button class="discover-button">DÉCOUVRIR</button>
-        </div>
-      </swiper-slide>
-    </swiper>
-  </div> -->
-
-  <div class="slider flex gap-x-6 items-center">
-    <div class="prev">
-      <img src="@/assets/icons/prev.svg" alt="Slider controller précédent" />
+  <div class="slider flex gap-x-6 items-center w-full">
+    <div class="control prev py-8 px-4" @click="prevSlide">
+      <img :src="prevIcon" alt="Slider controller précédent" />
     </div>
 
-    <div class="slider__content flex gap-x-8">
-      <div
-        class="slider__item flex flex-col gap-y-6"
-        v-for="(program, index) in data.programs"
-        :key="index"
-      >
-        <img src="@/assets/fake-image.png" alt="Fausse image" class="h-60" />
+    <div class="slider__content flex overflow-hidden relative w-full">
+      <div class="slider-wrapper flex gap-x-8" :style="wrapperStyle">
+        <div
+          class="slider__item flex flex-col gap-y-6"
+          v-for="(program, index) in data.programs"
+          :key="index"
+          :style="itemStyle"
+        >
+          <img src="@/assets/fake-image.png" alt="Fausse image" class="h-60" />
 
-        <div class="item__content flex flex-col gap-y-4">
-          <div class="item__price h3 neutre-0">{{ program.price }} €</div>
-          <div class="item__name h4 primary-100">{{ program.name }}</div>
-          <ul class="features flex flex-col gap-y-1.5">
-            <li
-              v-for="(feature, index) in program.features"
-              :key="index"
-              class="flex gap-x-2"
-            >
-              <span>
-                <img
-                  v-if="feature.available"
-                  src="@/assets/icons/check.svg"
-                  class="h-6"
-                  alt="Check Icon"
-                />
-                <img
-                  v-else
-                  src="@/assets/icons/close.svg"
-                  class="h-6"
-                  alt="Check Icon"
-                />
-              </span>
-              {{ feature.name }}
-            </li>
-          </ul>
+          <div class="item__content flex flex-col gap-y-4">
+            <div class="item__price h3 neutre-0">{{ program.price }} €</div>
+            <div class="item__name h4 primary-100">{{ program.name }}</div>
+            <ul class="features flex flex-col gap-y-1.5">
+              <li
+                v-for="(feature, index) in program.features"
+                :key="index"
+                class="flex gap-x-2"
+              >
+                <span>
+                  <img
+                    v-if="feature.available"
+                    src="@/assets/icons/check.svg"
+                    class="h-6"
+                    alt="Check Icon"
+                  />
+                  <img
+                    v-else
+                    src="@/assets/icons/close.svg"
+                    class="h-6"
+                    alt="Close Icon"
+                  />
+                </span>
+                {{ feature.name }}
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary w-full">Découvrir</button>
         </div>
-
-        <button class="btn btn-primary w-full">Découvrir</button>
       </div>
     </div>
 
-    <div class="next">
-      <img src="@/assets/icons/next.svg" alt="Slider controller suivant" />
+    <div class="control next py-8 px-4" @click="nextSlide">
+      <img :src="nextIcon" alt="Slider controller précédent" />
     </div>
   </div>
 </template>
 
 <script setup>
-import data from "@/data/db.json"
+import { ref, computed } from "vue";
+import data from "@/data/db.json";
+
+const startIndex = ref(0);
+const itemsToShow = 3;
+const itemGap = 32;
+const itemWidthPercentage = 100 / itemsToShow;
+const itemWidth = `calc(${itemWidthPercentage}% - ${
+  (itemGap / itemsToShow) * (itemsToShow - 1)
+}px)`;
+
+// Calculer de la transition
+const wrapperStyle = computed(() => {
+  const translateX = startIndex.value * itemWidthPercentage;
+
+  return {
+    transform: `translateX(-${translateX}%)`,
+    transition: "transform 0.5s ease-in-out",
+    gap: `${itemGap}px`,
+  };
+});
+
+// Largeur des items
+const itemStyle = {
+  flex: `0 0 ${itemWidth}`,
+};
+
+// Vérifier si l'item est le premier ou le dernier
+const isFirstSlide = computed(() => startIndex.value === 0);
+const isLastSlide = computed(
+  () => startIndex.value >= data.programs.length - itemsToShow
+);
+
+// Déterminer les icônes à afficher
+const prevIcon = computed(() => (isFirstSlide.value ? '@/assets/icons/prev-disabled.svg' : '@/assets/icons/prev.svg'));
+const nextIcon = computed(() => (isLastSlide.value ? '@/assets/icons/next-disabled.svg' : '@/assets/icons/next.svg'));
+
+
+// Passer à l'item précédent
+const prevSlide = () => {
+  if (startIndex.value > 0) {
+    startIndex.value -= 1;
+  }
+};
+
+// Passer à l'item suivant
+const nextSlide = () => {
+  if (startIndex.value < data.programs.length - itemsToShow) {
+    startIndex.value += 1;
+  }
+};
 </script>
+
+<style scoped>
+.control:hover {
+  cursor: pointer;
+}
+
+.slider-wrapper {
+  transition: transform 0.5s ease-in-out;
+}
+</style>
