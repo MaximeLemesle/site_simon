@@ -1,7 +1,16 @@
 <template>
-  <div class="slider flex gap-x-6 items-center w-full">
+  <div id="slider" class="flex gap-x-6 items-center w-full">
     <div class="control prev py-8 px-4" @click="prevSlide">
-      <img :src="prevIcon" alt="Slider controller précédent" />
+      <img
+        v-if="isFirstSlide"
+        src="@/assets/icons/prev-disabled.svg"
+        alt="Slider controller précédent"
+      />
+      <img
+        v-else
+        src="@/assets/icons/prev.svg"
+        alt="Slider controller précédent"
+      />
     </div>
 
     <div class="slider__content flex overflow-hidden relative w-full">
@@ -41,13 +50,14 @@
               </li>
             </ul>
           </div>
-          <button class="btn btn-primary w-full">Découvrir</button>
+          <button class="btn btn-primary !w-full">Découvrir</button>
         </div>
       </div>
     </div>
 
     <div class="control next py-8 px-4" @click="nextSlide">
-      <img :src="nextIcon" alt="Slider controller précédent" />
+      <img v-if="isLastSlide" src="@/assets/icons/next-disabled.svg" alt="Slider controller suivant"/>
+      <img v-else src="@/assets/icons/next.svg" alt="Slider controller suivant"/>
     </div>
   </div>
 </template>
@@ -59,17 +69,15 @@ import data from "@/data/db.json";
 const startIndex = ref(0);
 const itemsToShow = 3;
 const itemGap = 32;
-const itemWidthPercentage = 100 / itemsToShow;
-const itemWidth = `calc(${itemWidthPercentage}% - ${
-  (itemGap / itemsToShow) * (itemsToShow - 1)
-}px)`;
+const itemWidth = 65 / itemsToShow;
+const windowWidth = window.innerWidth;
+const gapInVw = (itemGap / windowWidth) * 100;
 
 // Calculer de la transition
 const wrapperStyle = computed(() => {
-  const translateX = startIndex.value * itemWidthPercentage;
-
+  const translateX = startIndex.value * (itemWidth + gapInVw);
   return {
-    transform: `translateX(-${translateX}%)`,
+    transform: `translateX(-${translateX}vw)`,
     transition: "transform 0.5s ease-in-out",
     gap: `${itemGap}px`,
   };
@@ -77,7 +85,7 @@ const wrapperStyle = computed(() => {
 
 // Largeur des items
 const itemStyle = {
-  flex: `0 0 ${itemWidth}`,
+  width: `${itemWidth}vw`,
 };
 
 // Vérifier si l'item est le premier ou le dernier
@@ -85,11 +93,6 @@ const isFirstSlide = computed(() => startIndex.value === 0);
 const isLastSlide = computed(
   () => startIndex.value >= data.programs.length - itemsToShow
 );
-
-// Déterminer les icônes à afficher
-const prevIcon = computed(() => (isFirstSlide.value ? '@/assets/icons/prev-disabled.svg' : '@/assets/icons/prev.svg'));
-const nextIcon = computed(() => (isLastSlide.value ? '@/assets/icons/next-disabled.svg' : '@/assets/icons/next.svg'));
-
 
 // Passer à l'item précédent
 const prevSlide = () => {
@@ -107,6 +110,10 @@ const nextSlide = () => {
 </script>
 
 <style scoped>
+#slider {
+  width: 80vw;
+}
+
 .control:hover {
   cursor: pointer;
 }
