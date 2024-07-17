@@ -3,6 +3,7 @@
         <HomeHero />
         <HomeVision />
         <HomeProgram />
+        <HomeSimon />
     </main>
 </template>
 
