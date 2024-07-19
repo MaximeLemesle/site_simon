@@ -1,5 +1,5 @@
 <template>
-  <section class="vision px-36 py-14 flex items-center gap-x-12 bg-neutre-0">
+  <section class="about px-36 py-14 flex items-center gap-x-12 bg-neutre-0">
     <img src="@/assets/fake-img-simon.png" alt="Fausse image" class="h-96" />
     <div class="content flex flex-col gap-y-8 items-left">
         <h2 class="h2 neutre-900">Simon Coach Hybride</h2>

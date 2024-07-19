@@ -4,6 +4,7 @@
         <HomeVision />
         <HomeProgram />
         <HomeSimon />
+        <HomeReview />
     </main>
 </template>
 
