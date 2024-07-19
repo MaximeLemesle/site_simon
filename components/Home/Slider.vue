@@ -1,5 +1,5 @@
 <template>
-  <div id="slider" class="flex gap-x-6 items-center w-full">
+  <div id="slider" class="flex gap-6 items-center w-full">
     <div class="control prev py-8 px-4" @click="prevSlide">
       <img
         v-if="isFirstSlide"
@@ -14,23 +14,23 @@
     </div>
 
     <div class="slider__content flex overflow-hidden relative w-full">
-      <div class="slider-wrapper flex gap-x-8" :style="wrapperStyle">
+      <div class="slider-wrapper flex gap-8" :style="wrapperStyle">
         <div
-          class="slider__item flex flex-col gap-y-6"
+          class="slider__item flex flex-col gap-6"
           v-for="(program, index) in data.programs"
           :key="index"
           :style="itemStyle"
         >
           <img src="@/assets/fake-image.png" alt="Fausse image" class="h-60" />
 
-          <div class="item__content flex flex-col gap-y-4">
+          <div class="item__content flex flex-col gap-4">
             <div class="item__price h3 neutre-0">{{ program.price }} €</div>
             <div class="item__name h4 primary-100">{{ program.name }}</div>
-            <ul class="features flex flex-col gap-y-1.5">
+            <ul class="features flex flex-col gap-1.5">
               <li
                 v-for="(feature, index) in program.features"
                 :key="index"
-                class="flex gap-x-2"
+                class="flex gap-2"
               >
                 <span>
                   <img

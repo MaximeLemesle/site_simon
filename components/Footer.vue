@@ -4,10 +4,10 @@
       id="contact"
       class="bg-primary-300 px-40 py-12 flex justify-between items-center"
     >
-      <div class="contact__info flex flex-col gap-y-8">
+      <div class="contact__info flex flex-col gap-8">
         <h2 class="h2 neutre-900">Me contacter</h2>
 
-        <div class="contact__link flex flex-col gap-y-6">
+        <div class="contact__link flex flex-col gap-6">
           <div class="contact__link__item flex gap-6">
             <img
               src="@/assets/icons/tel.png"
@@ -50,7 +50,7 @@
     </section>
     <section
       id="footer"
-      class="bg-primary-500 px-40 py-12 flex flex-col items-center gap-y-8"
+      class="bg-primary-500 px-40 py-12 flex flex-col items-center gap-8"
     >
       <div class="logo">
         <nuxt-link to="/">
@@ -63,7 +63,7 @@
       </div>
 
       <div class="footer__content flex justify-between w-full">
-        <div class="footer__content__nav flex flex-col gap-y-4">
+        <div class="footer__content__nav flex flex-col gap-4">
           <h4 class="h4 primary-900">Navigation</h4>
           <nuxt-link to="/about" class="primary-100 italic"
             >Qui-suis-je ?</nuxt-link
@@ -79,14 +79,14 @@
           >
         </div>
 
-        <div class="footer__content__contact flex flex-col gap-y-4">
+        <div class="footer__content__contact flex flex-col gap-4">
           <h4 class="h4 primary-900">Contact</h4>
           <nuxt-link class="primary-100 italic">Mail</nuxt-link>
           <nuxt-link class="primary-100 italic">Numéro de tel</nuxt-link>
           <nuxt-link class="primary-100 italic">Adresse</nuxt-link>
         </div>
 
-        <div class="footer__content__social flex flex-col gap-y-4">
+        <div class="footer__content__social flex flex-col gap-4">
           <h4 class="h4 primary-900">Réseaux sociaux</h4>
           <a
             href="https://www.instagram.com/simon.videgrain/"

@@ -1,5 +1,5 @@
 <template>
-  <section class="vision px-36 py-14 flex flex-col items-center gap-y-8 bg-neutre-0">
+  <section class="vision px-36 py-14 flex flex-col items-center gap-8 bg-neutre-0">
     <h2 class="h2 neutre-900">Programme de sport hybride</h2>
     <p class="text-center neutre-900">
       Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate

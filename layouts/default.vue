@@ -59,6 +59,12 @@ a:hover {
 
 .nav-font {
   font-size: 24px;
+  transition: color 300ms ease-in-out;
+}
+
+.nav-font:hover {
+  color: #3d598f;
+  text-decoration: none;
 }
 
 .footer-font {

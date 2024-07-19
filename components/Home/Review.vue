@@ -1,5 +1,5 @@
 <template>
-    <section class="review px-36 py-14 flex flex-col items-center gap-y-8 bg-primary-100">
+    <section class="review px-36 py-14 flex flex-col items-center gap-8 bg-primary-100">
         <h2 class="h2 neutre-900">les athlètes hybrides</h2>
         <div class="review__image flex items-center">
             <img src="@/assets/fake-img-review-2.png" alt="Fausse image" class="h-80" />
