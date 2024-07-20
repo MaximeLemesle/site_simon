@@ -1,6 +1,6 @@
 <template>
   <div id="slider" class="flex gap-6 items-center w-full">
-    <div class="control prev py-8 px-4" @click="prevSlide">
+    <div class="control prev py-8 px-4" @click="prevSlide" :style="controlStyle">
       <img
         v-if="isFirstSlide"
         src="@/assets/icons/prev-disabled.svg"
@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <div class="control next py-8 px-4" @click="nextSlide">
+    <div class="control next py-8 px-4" @click="nextSlide" :style="controlStyle">
       <img v-if="isLastSlide" src="@/assets/icons/next-disabled.svg" alt="Slider controller suivant"/>
       <img v-else src="@/assets/icons/next.svg" alt="Slider controller suivant"/>
     </div>
@@ -64,7 +64,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import data from "@/data/db.json";
+import data from "@/data/programs.json";
 
 const startIndex = ref(0);
 const itemsToShow = 3;
