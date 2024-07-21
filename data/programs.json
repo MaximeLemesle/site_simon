@@ -3,7 +3,7 @@
     {
       "name": "Programme Beast",
       "price": 50,
-      "miniature": "mini-beast.png",
+      "miniature": "fake-mini-beast.png",
       "image": "beast.svg",
       "description": "Le programme Beast s’adresse à ceux qui souhaitent passer des sélections pour l’armée avec un plan d’entraînement permettant de développer un large   éventail de qualités physiques.",
       "features": [
@@ -39,7 +39,7 @@
     {
       "name": "Programme VO2 Max",
       "price": 75,
-      "miniature": "mini-vo2.png",
+      "miniature": "fake-mini-vo2.png",
       "image": "vo2.svg",
       "description": "Le programme VO2 Max s’adresse à tous les coureurs, peu importe leur niveau, et a pour but d’améliorer les performances.",
       "features": [
@@ -75,7 +75,7 @@
     {
         "name": "Programme Puissance",
         "price": 100,
-        "miniature": "mini-puissance.png",
+        "miniature": "fake-mini-puissance.png",
         "image": "puissance.svg",
         "description": "Le programme Puissance mixe différents sports, permettant ainsi d’améliorer la force globale du corps avec des exercices de powerlifting, d’haltérophilie, et de strongman.",
         "features": [

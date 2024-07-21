@@ -1,5 +1,5 @@
 <template>
-  <section class="introduction px-36 py-14 flex flex-col items-center gap-8 bg-neutre-0">
+  <section class="introduction px-36 py-14 flex flex-col items-center gap-y-8 bg-neutre-0">
     <h2 class="h2 neutre-900">Introduction personnelle</h2>
     <div class="introduction__content flex items-center gap-12">
         <p class="neutre-900">

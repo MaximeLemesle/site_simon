@@ -1,6 +1,6 @@
 <template>
   <section class="hero px-56 py-24">
-    <h1 class="h1 primary-100 text-center">Simon coach hybride</h1>
+    <h1 class="h1 primary-100 text-center">Coaching<br>et<br>programme</h1>
   </section>
 </template>
 <style>
