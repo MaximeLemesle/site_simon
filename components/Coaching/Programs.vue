@@ -1,39 +1,40 @@
 <template>
-  <section
-    class="programs px-36 py-14 flex flex-col items-center gap-y-8 bg-neutre-0"
-  >
-    <h2 class="h2 neutre-900">Les différents programmes hybrides</h2>
-    <div class="programs__content flex items-center gap-6">
-      <div
-        class="programs__miniature miniature__beast h-44 w-44 cursor-pointer"
-        @click="displayBeast"
-        :class="{ selected: showBeastProgram }"
-      ></div>
-      <div
-        class="programs__miniature miniature__vo2 h-44 w-44 cursor-pointer"
-        @click="displayVo2"
-        :class="{ selected: showVo2Program }"
-      ></div>
-      <div
-        class="programs__miniature miniature__puissance h-44 w-44 cursor-pointer"
-        @click="displayPuissance"
-        :class="{ selected: showPuissanceProgram }"
-      ></div>
+  <section>
+    <div class="programs px-36 py-14 flex flex-col items-center gap-8 bg-neutre-900">
+      <h2 class="h2 neutre-0">Les différents programmes hybrides</h2>
+      <div class="programs__content flex items-center gap-6">
+        <div
+          class="programs__miniature miniature__beast h-44 w-44 cursor-pointer"
+          @click="displayBeast"
+          :class="{ selected: showBeastProgram }"
+        ></div>
+        <div
+          class="programs__miniature miniature__vo2 h-44 w-44 cursor-pointer"
+          @click="displayVo2"
+          :class="{ selected: showVo2Program }"
+        ></div>
+        <div
+          class="programs__miniature miniature__puissance h-44 w-44 cursor-pointer"
+          @click="displayPuissance"
+          :class="{ selected: showPuissanceProgram }"
+        ></div>
+      </div>
     </div>
-    <div v-if="showBeastProgram" class="programs__details">
-      <h3 class="h3 neutre-900">Beast</h3>
-    </div>
-    <div v-if="showVo2Program" class="programs__details">
-      <h3 class="h3 neutre-900">Vo2</h3>
-    </div>
-    <div v-if="showPuissanceProgram" class="programs__details">
-      <h3 class="h3 neutre-900">Puissance</h3>
+    <div class="programs__details px-36 py-14 bg-primary-100">
+      <div v-if="showBeastProgram" class="programs__details">
+        <CoachingProgramBeast />
+      </div>
+      <div v-if="showVo2Program" class="programs__details">
+        <h3 class="h3 neutre-900">Vo2</h3>
+      </div>
+      <div v-if="showPuissanceProgram" class="programs__details">
+        <h3 class="h3 neutre-900">Puissance</h3>
+      </div>
     </div>
   </section>
 </template>
 <script setup>
 import { ref } from "vue";
-// import data from "@/data/programs.json";
 
 const showBeastProgram = ref(true);
 const showVo2Program = ref(false);
@@ -59,7 +60,7 @@ const displayPuissance = () => {
 </script>
 <style scoped>
 .programs__miniature {
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }

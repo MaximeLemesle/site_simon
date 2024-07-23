@@ -4,7 +4,7 @@
       "name": "Programme Beast",
       "price": 50,
       "miniature": "fake-mini-beast.png",
-      "image": "beast.svg",
+      "image": "assets/beast.svg",
       "description": "Le programme Beast s’adresse à ceux qui souhaitent passer des sélections pour l’armée avec un plan d’entraînement permettant de développer un large   éventail de qualités physiques.",
       "features": [
         {
@@ -40,7 +40,7 @@
       "name": "Programme VO2 Max",
       "price": 75,
       "miniature": "fake-mini-vo2.png",
-      "image": "vo2.svg",
+      "image": "assets/vo2.svg",
       "description": "Le programme VO2 Max s’adresse à tous les coureurs, peu importe leur niveau, et a pour but d’améliorer les performances.",
       "features": [
         {
