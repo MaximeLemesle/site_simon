@@ -54,7 +54,7 @@ a:hover {
 
 /* Text */
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .nav-font {
@@ -68,7 +68,7 @@ a:hover {
 }
 
 .footer-font {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 /* Colors */
