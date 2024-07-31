@@ -20,15 +20,15 @@
         ></div>
       </div>
     </div>
-    <div class="programs__details px-36 py-14 bg-primary-100">
+    <div class="programs__details px-36 py-14" :class="{ 'bg-primary-100': showBeastProgram || showPuissanceProgram, 'bg-primary-300': showVo2Program }">
       <div v-if="showBeastProgram" class="programs__details">
         <CoachingProgramBeast />
       </div>
       <div v-if="showVo2Program" class="programs__details">
-        <h3 class="h3 neutre-900">Vo2</h3>
+        <CoachingProgramVo2 />
       </div>
       <div v-if="showPuissanceProgram" class="programs__details">
-        <h3 class="h3 neutre-900">Puissance</h3>
+        <CoachingProgramPuissance />
       </div>
     </div>
   </section>
