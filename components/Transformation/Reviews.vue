@@ -4,38 +4,39 @@
       class="review__item px-36 py-14 gap-8 flex flex-col items-center"
       :class="{
         'bg-neutre-0 neutre-900': review.id % 2 !== 0,
-        'bg-primary-300 neutre-0': review.id % 2 === 0,
+        'bg-primary-300 neutre-0 flex-row-reverse': review.id % 2 === 0,
       }"
       v-for="review in reviews.reviews"
       v-bind:key="review.id"
     >
       <!-- TODO :                    -->
-      <!-- Styliser les titres       -->
       <!-- Gérer les images          -->
-      <!-- Modifier le flex row 2    -->
       <h2 class="h2">Programme de l’athlète {{ review.name }}</h2>
-      <div class="review__content flex gap-12">
+      <div class="review__content flex gap-12"
+        :class="{
+          'flex-row-reverse': review.id % 2 === 0,
+        }">
         <div class="review__details flex flex-col gap-8 w-2/3">
 
-          <h3>Programme {{ review.program }}</h3>
+          <h3 class="h3">Programme {{ review.program }}</h3>
 
           <div class="flex flex-col gap-4">
             <div class="p-2">
-              <h4>Poids de départ :</h4>
+              <h4 class="h5">Poids de départ :</h4>
               <p>{{ review.start_weight }}kg</p>
             </div>
             <div class="p-2">
-              <h4>Poids de fin :</h4>
+              <h4 class="h5">Poids de fin :</h4>
               <p>{{ review.final_weight }}kg</p>
             </div>
             <div class="p-2">
-              <h4>Objectif :</h4>
+              <h4 class="h5">Objectif :</h4>
               <p>{{ review.objective }}</p>
             </div>
           </div>
 
           <div class="feedback p-2 bg-primary-500 primary-100">
-            <h4>Retour :</h4>
+            <h4 class="h5">Retour :</h4>
             <p>{{ review.feedback }}</p>
           </div>
 

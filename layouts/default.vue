@@ -50,6 +50,11 @@ a:hover {
   text-transform: uppercase;
   line-height: normal;
 }
+.h5 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: normal;
+}
 
 
 /* Text */
