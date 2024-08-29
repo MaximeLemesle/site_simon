@@ -9,8 +9,6 @@
       v-for="review in reviews.reviews"
       v-bind:key="review.id"
     >
-      <!-- TODO :                    -->
-      <!-- Gérer les images          -->
       <h2 class="h2">Programme de l’athlète {{ review.name }}</h2>
       <div class="review__content flex gap-12"
         :class="{
@@ -45,12 +43,12 @@
         <div class="review__images flex flex-col gap-3 w-1/3">
           <img
             class="h-64 w-full"
-            src="@/assets/reviews/fake-img-before-paul.png"
+            :src="`/_nuxt/assets/reviews/${review.image_before}`"
             alt="Photo avant transformation de {{ review.name }}"
           />
           <img
             class="h-64 w-full"
-            src="@/assets/reviews/fake-img-after-paul.png"
+            :src="`/_nuxt/assets/reviews/${review.image_after}`"
             alt="Photo après transformation de {{ review.name }}"
           />
         </div>
