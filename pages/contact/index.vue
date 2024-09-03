@@ -1,13 +1,6 @@
 <template>
-    <div>
-        <h1 class="h1 primary-500">Contact Page</h1>
-    </div>
+    <main>
+        <ContactHero />
+        <ContactForm />
+    </main>
 </template>
-
-<script setup>
-
-</script>
-
-<style>
-
-</style>
