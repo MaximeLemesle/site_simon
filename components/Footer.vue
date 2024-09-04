@@ -2,35 +2,35 @@
   <footer>
     <section
       id="contact"
-      class="bg-primary-300 px-40 py-12 flex justify-between items-center"
+      class="bg-primary-300 px-24 py-8 lg:px-40 lg:py-12 flex justify-between items-center"
     >
       <div class="contact__info flex flex-col gap-8">
         <h2 class="h2 neutre-900">Me contacter</h2>
 
         <div class="contact__link flex flex-col gap-6">
-          <div class="contact__link__item flex gap-6">
+          <div class="contact__link__item flex gap-4 lg:gap-6">
             <img
               src="@/assets/icons/tel.png"
               alt="Icon de téléphone"
-              class="h-7"
+              class="h-5 lg:h-7"
             />
             <a href="#">01.23.45.67.89</a>
           </div>
 
-          <div class="contact__link__item flex gap-6">
-            <img src="@/assets/icons/mail.png" alt="Icon de mail" class="h-7" />
+          <div class="contact__link__item flex gap-4 lg:gap-6">
+            <img src="@/assets/icons/mail.png" alt="Icon de mail" class="h-5 lg:h-7" />
             <a href="#">simon@gmail.com</a>
           </div>
 
           <div class="contact__link__item">
             <a
               href="https://www.instagram.com/simon.videgrain/"
-              class="flex gap-6"
+              class="flex gap-4 lg:gap-6"
             >
               <img
                 src="@/assets/icons/insta.png"
                 alt="Icon instagram"
-                class="h-7"
+                class="h-5 lg:h-7"
               />
               @simon.videgrain
             </a>
@@ -43,7 +43,7 @@
       </div>
 
       <div class="contact__image">
-        <div class="fake-img">
+        <div class="flex justify-center items-center bg-slate-400 neutre-0 h-48 w-48 md:h-72 md:w-72 lg:h-96 lg:w-96">
           <span class="h4">image de toi</span>
         </div>
       </div>
@@ -112,7 +112,8 @@
 
       <div class="footer__credit">
         <span class="footer-font neutre-0">
-            ©Simon Coach Hybride - <a href="#">Paiement 100% sécurisé</a> - <a href="#">Mentions légales et Conditions générales de vente</a>
+          ©Simon Coach Hybride - <a href="#">Paiement 100% sécurisé</a> -
+          <a href="#">Mentions légales et Conditions générales de vente</a>
         </span>
       </div>
       <!-- crédit -->
@@ -124,15 +125,5 @@
   font-family: Dela Gothic One;
   letter-spacing: 0.5px;
   color: #ecf1f9;
-}
-
-.fake-img {
-  height: 400px;
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #9d9d9d;
-  color: #ffffff;
 }
 </style>

@@ -63,7 +63,6 @@ a:hover {
 }
 
 .nav-font {
-  font-size: 24px;
   transition: color 300ms ease-in-out;
 }
 
@@ -159,5 +158,57 @@ a:hover {
 .btn-secondary:hover {
     background-color: #ECF1F9;
     color: #002366;
+}
+
+/* Responsive Headings */
+@media (max-width: 640px) {
+  .h1 {
+    font-size: 32px !important;
+  }
+  .h2 {
+    font-size: 24px !important;
+  }
+  .h3 {
+    font-size: 20px !important;
+  }
+  .h4 {
+    font-size: 18px !important;
+  }
+  .h5 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .h1 {
+    font-size: 48px;
+  }
+  .h2 {
+    font-size: 36px;
+  }
+  .h3 {
+    font-size: 28px;
+  }
+  .h4 {
+    font-size: 22px;
+  }
+  .h5 {
+    font-size: 18px;
+  }
+}
+
+/* Responsive Buttons */
+@media (max-width: 640px) {
+  .btn {
+    font-size: .8rem !important;
+    padding: 0.8rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    font-size: 1.2rem;
+    padding: 0.9rem 1.8rem;
+  }
 }
 </style>
