@@ -163,19 +163,16 @@ a:hover {
 /* Responsive Headings */
 @media (max-width: 640px) {
   .h1 {
-    font-size: 32px !important;
+    font-size: 36px !important;
   }
   .h2 {
-    font-size: 24px !important;
+    font-size: 32px !important;
   }
   .h3 {
-    font-size: 20px !important;
+    font-size: 24px !important;
   }
   .h4 {
-    font-size: 18px !important;
-  }
-  .h5 {
-    font-size: 16px !important;
+    font-size: 20px !important;
   }
 }
 
@@ -192,15 +189,12 @@ a:hover {
   .h4 {
     font-size: 22px;
   }
-  .h5 {
-    font-size: 18px;
-  }
 }
 
 /* Responsive Buttons */
 @media (max-width: 640px) {
   .btn {
-    font-size: .8rem !important;
+    font-size: 1rem !important;
     padding: 0.8rem 1.5rem !important;
   }
 }
