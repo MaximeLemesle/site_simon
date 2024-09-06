@@ -63,7 +63,7 @@
       </div>
 
       <div class="footer__content flex flex-col items-center gap-6 sm:flex-row justify-between w-full">
-        <div class="footer__content__nav flex flex-col gap-3 sm:gap-4">
+        <div class="footer__content__nav hidden sm:flex flex-col sm:gap-4">
           <h4 class="h4 primary-900">Navigation</h4>
           <nuxt-link to="/about" class="primary-100 italic text-sm md:text-base"
             >Qui-suis-je ?</nuxt-link
