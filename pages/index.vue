@@ -1,10 +1,10 @@
 <template>
     <main>
         <HomeHero />
-        <HomeVision />
-        <HomeProgram />
-        <HomeSimon />
-        <HomeReview />
+        <!-- <HomeVision /> -->
+        <!-- <HomeProgram /> -->
+        <!-- <HomeSimon /> -->
+        <!-- <HomeReview /> -->
     </main>
 </template>
 
