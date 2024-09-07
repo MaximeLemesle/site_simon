@@ -8,22 +8,20 @@
 <style>
 /* Base */
 html {
-    background: #060b13;
+  background: #060b13;
 }
 * {
-    font-family: DM Sans;
+  font-family: DM Sans;
 }
-
 
 /* Links */
 a {
-    transition: color .1s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
 a:hover {
-    text-decoration: underline;
-    color: #002366;
+  text-decoration: underline;
+  color: #002366;
 }
-
 
 /* Heading */
 .h1 {
@@ -31,31 +29,35 @@ a:hover {
   font-size: 64px;
   text-transform: uppercase;
   line-height: normal;
+  text-align: center;
 }
 .h2 {
   font-family: Airstrike;
   font-size: 48px;
   text-transform: uppercase;
   line-height: normal;
+  text-align: center;
 }
 .h3 {
   font-family: Airstrike;
   font-size: 32px;
   text-transform: uppercase;
   line-height: normal;
+  text-align: center;
 }
 .h4 {
   font-family: Airstrike;
   font-size: 24px;
   text-transform: uppercase;
   line-height: normal;
+  text-align: center;
 }
 .h5 {
   font-size: 16px;
   font-weight: bold;
   line-height: normal;
+  text-align: center;
 }
-
 
 /* Text */
 .italic {
@@ -99,7 +101,6 @@ a:hover {
   color: #060b13;
 }
 
-
 /* Background */
 .bg-primary-100 {
   background-color: #ecf1f9;
@@ -124,40 +125,40 @@ a:hover {
   background-color: #060b13;
 }
 
-
 /* Buttons */
 .btn {
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    font-family: Airstrike;
-    font-size: 1.5rem;
-    line-height: normal;
-    width: fit-content;
-    transition: all 300ms ease-in-out;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-family: Airstrike;
+  font-size: 1.5rem;
+  line-height: normal;
+  width: fit-content;
+  transition: all 300ms ease-in-out;
+  text-align: center;
 }
 
 .btn:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn-primary {
-    background-color: #002366;
-    color: #ffffff;
+  background-color: #002366;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-    background-color: #ECF1F9;
-    color: #002366;
+  background-color: #ecf1f9;
+  color: #002366;
 }
 
 .btn-secondary {
-    background-color: #9CACC9;
-    color: #ffffff;
+  background-color: #9cacc9;
+  color: #ffffff;
 }
 
 .btn-secondary:hover {
-    background-color: #ECF1F9;
-    color: #002366;
+  background-color: #ecf1f9;
+  color: #002366;
 }
 
 /* Responsive Headings */

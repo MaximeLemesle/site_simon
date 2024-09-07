@@ -1,8 +1,8 @@
 <template>
     <main>
         <HomeHero />
-        <!-- <HomeVision /> -->
-        <!-- <HomeProgram /> -->
+        <HomeVision />
+        <HomeProgram />
         <!-- <HomeSimon /> -->
         <!-- <HomeReview /> -->
     </main>

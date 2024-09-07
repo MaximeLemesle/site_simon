@@ -1,5 +1,5 @@
 <template>
-  <section class="hero px-4 py-8 sm:px-8 sm:py-12 lg:px-56 lg:pt-36 lg:pb-24 flex flex-col items-center gap-8">
+  <section class="hero p-8 sm:px-8 sm:py-12 lg:px-56 lg:pt-36 lg:pb-24 flex flex-col items-center gap-8">
     <h1 class="h1 primary-100 text-center">
       Phrase mettant en avant ta vision
     </h1>

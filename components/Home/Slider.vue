@@ -67,9 +67,13 @@ import { ref, computed } from "vue";
 import data from "@/data/programs.json";
 
 const startIndex = ref(0);
-const itemsToShow = 3;
+const itemsToShow = computed(() => {
+  if (window.innerWidth < 640) return 1; // Mobile
+  if (window.innerWidth < 1024) return 2; // Tablet
+  return 3; // Desktop
+});
 const itemGap = 32;
-const itemWidth = 65 / itemsToShow;
+const itemWidth = 65 / itemsToShow.value;
 const windowWidth = window.innerWidth;
 const gapInVw = (itemGap / windowWidth) * 100;
 
@@ -84,14 +88,14 @@ const wrapperStyle = computed(() => {
 });
 
 // Largeur des items
-const itemStyle = {
+const itemStyle = computed(() => ({
   width: `${itemWidth}vw`,
-};
+}));
 
 // Vérifier si l'item est le premier ou le dernier
 const isFirstSlide = computed(() => startIndex.value === 0);
 const isLastSlide = computed(
-  () => startIndex.value >= data.programs.length - itemsToShow
+  () => startIndex.value >= data.programs.length - itemsToShow.value
 );
 
 // Passer à l'item précédent
@@ -103,10 +107,15 @@ const prevSlide = () => {
 
 // Passer à l'item suivant
 const nextSlide = () => {
-  if (startIndex.value < data.programs.length - itemsToShow) {
+  if (startIndex.value < data.programs.length - itemsToShow.value) {
     startIndex.value += 1;
   }
 };
+
+// Écouter les changements de taille de la fenêtre
+window.addEventListener('resize', () => {
+  itemWidth = 65 / itemsToShow.value;
+});
 </script>
 
 <style scoped>
