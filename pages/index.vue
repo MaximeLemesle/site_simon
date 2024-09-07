@@ -1,7 +1,7 @@
 <template>
     <main>
-        <HomeHero />
-        <HomeVision />
+        <!-- <HomeHero /> -->
+        <!-- <HomeVision /> -->
         <HomeProgram />
         <!-- <HomeSimon /> -->
         <!-- <HomeReview /> -->

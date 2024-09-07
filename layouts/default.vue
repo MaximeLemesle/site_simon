@@ -173,7 +173,7 @@ a:hover {
     font-size: 24px !important;
   }
   .h4 {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 }
 
@@ -188,7 +188,7 @@ a:hover {
     font-size: 28px;
   }
   .h4 {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 

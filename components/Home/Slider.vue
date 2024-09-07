@@ -1,18 +1,22 @@
 <template>
   <div id="slider" class="flex gap-6 items-center w-full">
-    <div class="control prev py-8 px-4" @click="prevSlide" :style="controlStyle">
+    <!-- Previous Slide Button -->
+    <div
+      class="control prev py-8 px-4"
+      @click="prevSlide"
+      :style="controlStyle"
+    >
       <img
-        v-if="isFirstSlide"
-        src="@/assets/icons/prev-disabled.svg"
-        alt="Slider controller précédent"
-      />
-      <img
-        v-else
-        src="@/assets/icons/prev.svg"
+        :src="
+          isFirstSlide
+            ? '/_nuxt/assets/icons/prev-disabled.svg'
+            : '/_nuxt/assets/icons/prev.svg'
+        "
         alt="Slider controller précédent"
       />
     </div>
 
+    <!-- Slider Content -->
     <div class="slider__content flex overflow-hidden relative w-full">
       <div class="slider-wrapper flex gap-8" :style="wrapperStyle">
         <div
@@ -22,7 +26,6 @@
           :style="itemStyle"
         >
           <img src="@/assets/fake-image.png" alt="Fausse image" class="h-60" />
-
           <div class="item__content flex flex-col gap-4">
             <div class="item__price h3 neutre-0">{{ program.price }} €</div>
             <div class="item__name h4 primary-100">{{ program.name }}</div>
@@ -55,79 +58,98 @@
       </div>
     </div>
 
-    <div class="control next py-8 px-4" @click="nextSlide" :style="controlStyle">
-      <img v-if="isLastSlide" src="@/assets/icons/next-disabled.svg" alt="Slider controller suivant"/>
-      <img v-else src="@/assets/icons/next.svg" alt="Slider controller suivant"/>
+    <!-- Next Slide Button -->
+    <div
+      class="control next py-8 px-4"
+      @click="nextSlide"
+      :style="controlStyle"
+    >
+      <img
+        :src="
+          isLastSlide
+            ? '/_nuxt/assets/icons/next-disabled.svg'
+            : '/_nuxt/assets/icons/next.svg'
+        "
+        alt="Slider controller suivant"
+      />
     </div>
   </div>
 </template>
-
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import data from "@/data/programs.json";
 
 const startIndex = ref(0);
-const itemsToShow = computed(() => {
-  if (window.innerWidth < 640) return 1; // Mobile
-  if (window.innerWidth < 1024) return 2; // Tablet
-  return 3; // Desktop
-});
-const itemGap = 32;
-const itemWidth = 65 / itemsToShow.value;
-const windowWidth = window.innerWidth;
-const gapInVw = (itemGap / windowWidth) * 100;
+const itemsToShow = ref(3);
 
-// Calculer de la transition
+const updateItemsToShow = () => {
+  const width = window.innerWidth;
+  if (width <= 640) {
+    itemsToShow.value = 1;
+  } else if (width <= 1024) {
+    itemsToShow.value = 2;
+  } else {
+    itemsToShow.value = 3;
+  }
+};
+
+onMounted(() => {
+  updateItemsToShow();
+  window.addEventListener("resize", updateItemsToShow);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateItemsToShow);
+});
+
+const itemGap = 16;
+const itemWidth = computed(() => 100 / itemsToShow.value);
+
 const wrapperStyle = computed(() => {
-  const translateX = startIndex.value * (itemWidth + gapInVw);
+  const translateX = startIndex.value * (itemWidth.value + itemGap);
   return {
-    transform: `translateX(-${translateX}vw)`,
+    transform: `translateX(-${translateX}%)`,
     transition: "transform 0.5s ease-in-out",
     gap: `${itemGap}px`,
   };
 });
 
-// Largeur des items
 const itemStyle = computed(() => ({
-  width: `${itemWidth}vw`,
+  width: `${itemWidth.value}%`,
 }));
 
-// Vérifier si l'item est le premier ou le dernier
 const isFirstSlide = computed(() => startIndex.value === 0);
 const isLastSlide = computed(
   () => startIndex.value >= data.programs.length - itemsToShow.value
 );
 
-// Passer à l'item précédent
 const prevSlide = () => {
   if (startIndex.value > 0) {
     startIndex.value -= 1;
   }
 };
 
-// Passer à l'item suivant
 const nextSlide = () => {
   if (startIndex.value < data.programs.length - itemsToShow.value) {
     startIndex.value += 1;
   }
 };
-
-// Écouter les changements de taille de la fenêtre
-window.addEventListener('resize', () => {
-  itemWidth = 65 / itemsToShow.value;
-});
 </script>
-
 <style scoped>
-#slider {
-  width: 80vw;
-}
-
 .control:hover {
   cursor: pointer;
 }
 
 .slider-wrapper {
   transition: transform 0.5s ease-in-out;
+}
+
+.slider__item {
+  transition: transform 0.3s ease;
+}
+
+.control img {
+  width: 40px;
+  height: 40px;
 }
 </style>
